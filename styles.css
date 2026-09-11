@@ -32,9 +32,18 @@ li::before {
   content: none;
 }
 
-main li {
+main ul > li {
   width: min(100%, 24rem);
   margin-inline: auto;
+  padding-left: 0;
+  list-style-type: none !important;
+  list-style-image: none !important;
+}
+
+main ul > li::before,
+main ul > li::marker {
+  display: none !important;
+  content: "" !important;
 }
 
 main button {
