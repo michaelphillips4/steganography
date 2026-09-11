@@ -1,0 +1,42 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  margin: 0;
+}
+
+main {
+  text-align: center;
+  width: min(100%, 32rem);
+  padding-top: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+li::marker,
+li::before {
+  content: none;
+}
+
+main li {
+  width: min(100%, 24rem);
+  margin-inline: auto;
+}
+
+main button {
+  width: 100%;
+}

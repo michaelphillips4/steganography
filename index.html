@@ -1,40 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="color-scheme" content="light dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <title>Encrypted Image Steganography</title>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css"
->
-<style>
-  body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-  }
-
-  main {
-    text-align: center;
-  }
-
-  footer {
-    text-align: center;
-  }
-</style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
   <main>
     <h1>Encrypted Image Steganography</h1>
+    <ul>
+      <li> <button id="openHideDialog">Hide text in an image</button></li>
+      <li> <button id="openReadDialog" class="secondary">Read text from an image</button>
+      </li>
+    </ul>
 
-    <button id="openHideDialog">Hide text in an image</button>
-    <button id="openReadDialog" class="secondary">Read text from an image</button>
 
   </main>
 
@@ -44,8 +28,8 @@
         <button aria-label="Close" rel="prev" data-close></button>
         <h2>Hide text in an image</h2>
         <div id="hideStatus">
-        Select an image, enter text and a password.
-      </div>
+          Select an image, enter text and a password.
+        </div>
       </header>
 
       <label for="message">Text to hide</label>
@@ -64,7 +48,7 @@
 
       <canvas id="hideCanvas"></canvas>
 
-      
+
     </article>
   </dialog>
 
@@ -74,8 +58,8 @@
         <button aria-label="Close" rel="prev" data-close></button>
         <h2>Read text from an image</h2>
         <div id="readStatus">
-        Select an image and enter the password used during encryption.
-      </div>
+          Select an image and enter the password used during encryption.
+        </div>
       </header>
 
       <label for="stegoImage">Choose an image containing hidden text</label>
@@ -91,15 +75,16 @@
       <label for="result">Recovered text</label>
       <textarea id="result" readonly></textarea>
 
-     
+
     </article>
   </dialog>
 
   <script src="app1.js"></script>
   <script src="dialogs.js"></script>
 
-<footer>
-  <a href="https://www.area2.co.uk">Home</a>
-</footer>
+  <footer>
+    <a href="https://www.area2.co.uk">Home</a>
+  </footer>
 </body>
+
 </html>
