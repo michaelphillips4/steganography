@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+  <title>Encrypted Image Steganography</title>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css"
+>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  main {
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+  }
+</style>
+</head>
+
+<body>
+  <main>
+    <h1>Encrypted Image Steganography</h1>
+
+    <button id="openHideDialog">Hide text in an image</button>
+    <button id="openReadDialog" class="secondary">Read text from an image</button>
+
+  </main>
+
+  <dialog id="hideDialog">
+    <article>
+      <header>
+        <button aria-label="Close" rel="prev" data-close></button>
+        <h2>Hide text in an image</h2>
+        <div id="hideStatus">
+        Select an image, enter text and a password.
+      </div>
+      </header>
+
+      <label for="message">Text to hide</label>
+      <textarea id="message" placeholder="Enter the secret text..."></textarea>
+
+      <label for="password">Encryption password</label>
+      <input id="password" type="password" placeholder="Enter a strong password" />
+
+      <label for="coverImage">Choose a PNG or image</label>
+      <input id="coverImage" type="file" accept="image/*" />
+
+      <button id="hideButton">Encrypt and Hide Text</button>
+      <button id="downloadButton" class="secondary" disabled>
+        Download Stego PNG
+      </button>
+
+      <canvas id="hideCanvas"></canvas>
+
+      
+    </article>
+  </dialog>
+
+  <dialog id="readDialog">
+    <article>
+      <header>
+        <button aria-label="Close" rel="prev" data-close></button>
+        <h2>Read text from an image</h2>
+        <div id="readStatus">
+        Select an image and enter the password used during encryption.
+      </div>
+      </header>
+
+      <label for="stegoImage">Choose an image containing hidden text</label>
+      <input id="stegoImage" type="file" accept="image/*" />
+
+      <label for="decryptPassword">Decryption password</label>
+      <input id="decryptPassword" type="password" placeholder="Enter the same password" />
+
+      <button id="readButton">Read and Decrypt Text</button>
+
+      <canvas id="readCanvas"></canvas>
+
+      <label for="result">Recovered text</label>
+      <textarea id="result" readonly></textarea>
+
+     
+    </article>
+  </dialog>
+
+  <script src="app1.js"></script>
+  <script src="dialogs.js"></script>
+
+<footer>
+  <a href="https://www.area2.co.uk">Home</a>
+</footer>
+</body>
+</html>
