@@ -29,10 +29,21 @@ function App() {
 
      
         {location.pathname === "/" ? (
-          <p>
-            This is a simple web application that allows you to hide text inside an image using
-            steganography. You can also read the hidden text from an image.
-          </p>
+          <>
+            <p>
+              This is a simple web application that allows you to hide text inside an image using
+              steganography. You can also read the hidden text from an image.
+            </p>
+            <p>
+              <a
+                href="https://en.wikipedia.org/wiki/Steganography"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Steganography on Wikipedia
+              </a>
+            </p>
+          </>
         ) : null}
         {location.pathname === "/hide" ? <HidePage /> : null}
         {location.pathname === "/read" ? <ReadPage /> : null}
