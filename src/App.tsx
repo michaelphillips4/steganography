@@ -1,40 +1,34 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import HidePage from "./HidePage";
 import ReadPage from "./ReadPage";
 
 function App() {
   const location = useLocation();
-  const navigate = useNavigate();
 
   return (
     <>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li>
+            <Link to="/" aria-current={location.pathname === "/" ? "page" : undefined}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/hide" aria-current={location.pathname === "/hide" ? "page" : undefined}>
+              Encrypt Text
+            </Link>
+          </li>
+          <li>
+            <Link to="/read" aria-current={location.pathname === "/read" ? "page" : undefined}>
+              Decrypt Text
+            </Link>
+          </li>
+        </ul>
+      </nav>
+
       {location.pathname === "/hide" ? <HidePage /> : null}
       {location.pathname === "/read" ? <ReadPage /> : null}
-      {location.pathname !== "/hide" && location.pathname !== "/read" ? (
-        <main>
-          <h1>Encrypted Image Steganography</h1>
-          <ul>
-            <li>
-              <button type="button" onClick={() => navigate("/hide")}>
-                Hide text in an image
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                className="secondary"
-                onClick={() => navigate("/read")}
-              >
-                Read text from an image
-              </button>
-            </li>
-          </ul>
-        </main>
-      ) : null}
-
-      <footer>
-        <a href="https://www.area2.co.uk">Home</a>
-      </footer>
     </>
   );
 }

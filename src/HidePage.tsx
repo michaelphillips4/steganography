@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   canvasToBlob,
   encryptText,
@@ -9,7 +8,6 @@ import {
 } from "../steg";
 
 function HidePage() {
-  const navigate = useNavigate();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [message, setMessage] = useState("");
   const [password, setPassword] = useState("");
@@ -86,12 +84,7 @@ function HidePage() {
   }
 
   return (
-    <main className="tool-page">
-      <nav className="page-navigation" aria-label="Page navigation">
-        <button type="button" className="secondary" onClick={() => navigate("/")}>
-          Back
-        </button>
-      </nav>
+    <>
       <h1>Hide text in an image</h1>
       <div className={`status ${status.type}`} role="status" aria-live="polite">
         {status.message}
@@ -136,7 +129,7 @@ function HidePage() {
 
       <button type="button" disabled={isProcessing} onClick={handleHide}>
         Encrypt and Hide Text
-      </button>
+      </button>&nbsp;
       <button
         type="button"
         className="secondary"
@@ -150,7 +143,7 @@ function HidePage() {
         ref={canvasRef}
         className={hasPreview ? "preview-canvas" : "processing-canvas"}
       />
-    </main>
+    </>
   );
 }
 

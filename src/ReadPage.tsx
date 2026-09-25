@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   decryptPayload,
   imageToCanvas,
@@ -8,7 +7,6 @@ import {
 } from "../steg";
 
 function ReadPage() {
-  const navigate = useNavigate();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [stegoImage, setStegoImage] = useState<File | null>(null);
   const [decryptPassword, setDecryptPassword] = useState("");
@@ -49,12 +47,7 @@ function ReadPage() {
   }
 
   return (
-    <main className="tool-page">
-      <nav className="page-navigation" aria-label="Page navigation">
-        <button type="button" className="secondary" onClick={() => navigate("/")}>
-          Back
-        </button>
-      </nav>
+    <>
       <h1>Read text from an image</h1>
       <div className={`status ${status.type}`} role="status" aria-live="polite">
         {status.message}
@@ -84,7 +77,7 @@ function ReadPage() {
 
       <label htmlFor="result">Recovered text</label>
       <textarea id="result" value={result} readOnly />
-    </main>
+    </>
   );
 }
 
