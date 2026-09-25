@@ -19,21 +19,19 @@ This LSB approach is intended for lossless image workflows. Resizing, recompress
 ## Technology and Structure
 
 - React 19 provides the interface; Vite runs development and production builds.
-- TypeScript is enabled across the app for stronger typing and safer browser-crypto code.
 - React Router provides browser-history navigation: `/hide` is the hide workflow and `/read` is the recovery workflow.
 - Pico CSS 2 classless stylesheet is loaded from jsDelivr in `index.html`; project-specific styles are in `styles.css`.
-- `src/App.tsx` selects the home, hide, and read views.
-- `src/HidePage.tsx` owns the hide form, encryption/embedding flow, PNG preview, and download action.
-- `src/ReadPage.tsx` owns image selection, payload extraction, decryption, and recovered text.
+- `src/App.jsx` selects the home, hide, and read views.
+- `src/HidePage.jsx` owns the hide form, encryption/embedding flow, PNG preview, and download action.
+- `src/ReadPage.jsx` owns image selection, payload extraction, decryption, and recovered text.
 - `steg.ts` contains shared encryption, image/canvas, and bit-encoding functions. Keep payload writing and reading compatible when changing its format.
-- `src/main.tsx` mounts the React app inside `BrowserRouter`.
+- `src/main.jsx` mounts the React app inside `BrowserRouter`.
 
 ## Development Commands
 
 - `npm install` installs dependencies.
 - `npm run dev` starts the Vite development server.
-- `npm run build` type-checks and creates a production bundle in `dist/`.
+- `npm run build` creates a production bundle in `dist/`.
 - `npm run preview` serves the production bundle locally.
-- `npm run lint` runs ESLint across the TypeScript/React project.
 
 When deploying browser-history routes, configure the static host to serve `index.html` as the fallback for `/hide` and `/read`.
