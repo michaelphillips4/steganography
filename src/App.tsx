@@ -11,12 +11,12 @@ function App() {
         <ul>
           <li>
             <Link to="/" aria-current={location.pathname === "/" ? "page" : undefined}>
-              Home
+              Home 
             </Link>
           </li>
           <li>
             <Link to="/hide" aria-current={location.pathname === "/hide" ? "page" : undefined}>
-              Encrypt Text
+              Encrypt Text 
             </Link>
           </li>
           <li>
@@ -27,8 +27,16 @@ function App() {
         </ul>
       </nav>
 
-      {location.pathname === "/hide" ? <HidePage /> : null}
-      {location.pathname === "/read" ? <ReadPage /> : null}
+     
+        {location.pathname === "/" ? (
+          <p>
+            This is a simple web application that allows you to hide text inside an image using
+            steganography. You can also read the hidden text from an image.
+          </p>
+        ) : null}
+        {location.pathname === "/hide" ? <HidePage /> : null}
+        {location.pathname === "/read" ? <ReadPage /> : null}
+     
     </>
   );
 }

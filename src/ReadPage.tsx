@@ -48,12 +48,11 @@ function ReadPage() {
 
   return (
     <>
-      <h1>Read text from an image</h1>
+     
       <div className={`status ${status.type}`} role="status" aria-live="polite">
-        {status.message}
-      </div>
+             </div>
 
-      <label htmlFor="stegoImage">Choose an image containing hidden text</label>
+      <label htmlFor="stegoImage"><b>1 Choose an image containing hidden text</b></label>
       <input
         id="stegoImage"
         type="file"
@@ -61,7 +60,7 @@ function ReadPage() {
         onChange={(event) => setStegoImage(event.target.files?.[0] ?? null)}
       />
 
-      <label htmlFor="decryptPassword">Decryption password</label>
+      <label htmlFor="decryptPassword"><b>2 Add Decryption password</b></label>
       <input
         id="decryptPassword"
         type="password"
@@ -72,11 +71,11 @@ function ReadPage() {
 
       <button type="button" onClick={handleRead}>
         Read and Decrypt Text
-      </button>
+      </button> <label htmlFor="result">Recovered text</label>
+      <textarea id="result" value={result} readOnly />
       <canvas ref={canvasRef} className="processing-canvas" />
 
-      <label htmlFor="result">Recovered text</label>
-      <textarea id="result" value={result} readOnly />
+     
     </>
   );
 }
