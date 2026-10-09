@@ -167,7 +167,7 @@ function HidePage() {
         <input
           id="password"
           type={showPassword ? "text" : "password"}
-          placeholder="Enter a strong password"
+          placeholder="create a password"
           value={password}
           disabled={isProcessing}
           onChange={(event) => {
