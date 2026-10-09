@@ -163,7 +163,11 @@ function HidePage() {
       />
 
       <label htmlFor="password"><b>2 Create Encryption password</b></label>
-      <div role="group" aria-label="Encryption password and actions">
+      <div
+        className="password-controls"
+        role="group"
+        aria-label="Encryption password and actions"
+      >
         <input
           id="password"
           type={showPassword ? "text" : "password"}
